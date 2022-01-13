@@ -30,12 +30,12 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="l-box-lrg pure-u-1 pure-u-md-3-5">
       <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+        <div className="pure-form pure-form-stacked">
           <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
@@ -61,7 +61,7 @@ function Login(props) {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit" className="pure-button">Submit</button>
         </div>
       </form>
     </div>
