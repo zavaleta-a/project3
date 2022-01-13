@@ -106,7 +106,6 @@ function Parts() {
           />
         </div>
       ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
     </>
   );
