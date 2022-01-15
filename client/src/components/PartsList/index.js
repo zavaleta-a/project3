@@ -21,8 +21,8 @@ function PartsList() {
         type: UPDATE_PARTS,
         parts: data.parts,
       });
-      data.parts.forEach((parts) => {
-        idbPromise('parts', 'put', parts);
+      data.parts.forEach((part) => {
+        idbPromise('parts', 'put', part);
       });
     } else if (!loading) {
       idbPromise('parts', 'get').then((parts) => {
@@ -40,7 +40,7 @@ function PartsList() {
     }
 
     return state.parts.filter(
-      (parts) => parts.category._id === currentCategory
+      (part) => part.category._id === currentCategory
     );
   }
 
@@ -49,14 +49,14 @@ function PartsList() {
       <h2>Our Parts:</h2>
       {state.parts.length ? (
         <div className="flex-row">
-          {filterParts().map((parts) => (
+          {filterParts().map((part) => (
             <PartsItem
-              key={parts._id}
-              _id={parts._id}
-              image={parts.image}
-              name={parts.name}
-              price={parts.price}
-              quantity={parts.quantity}
+              key={part._id}
+              _id={part._id}
+              image={part.image}
+              name={part.name}
+              price={part.price}
+              quantity={part.quantity}
             />
           ))}
         </div>

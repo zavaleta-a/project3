@@ -10,7 +10,7 @@ const orderSchema = new Schema({
   parts: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Parts",
+      ref: "Part",
     },
   ],
 });

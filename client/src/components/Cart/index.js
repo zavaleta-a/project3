@@ -48,16 +48,16 @@ const Cart = () => {
   }
 
   function submitCheckout() {
-    const partsIds = [];
+    const partIds = [];
 
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        partsIds.push(item._id);
+        partIds.push(item._id);
       }
     });
 
     getCheckout({
-      variables: { parts: partsIds },
+      variables: { parts: partIds },
     });
   }
 
