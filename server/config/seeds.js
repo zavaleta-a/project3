@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { User, Product, Category } = require("../models");
+const { User, Parts, Category } = require("../models");
 
 db.once("open", async () => {
   await Category.deleteMany();
@@ -14,9 +14,9 @@ db.once("open", async () => {
 
   console.log("categories seeded");
 
-  await Product.deleteMany();
+  await Parts.deleteMany();
 
-  const products = await Product.insertMany([
+  const products = await Parts.insertMany([
     {
       name: "Air Filter",
       description: "STP-Air-Filter for Toyota RAV4",
