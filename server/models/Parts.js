@@ -2,14 +2,11 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const partsSchema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true,
-  },
-  description: {
-    type: String,
   },
   image: {
     type: String,
@@ -31,6 +28,6 @@ const productSchema = new Schema({
   },
 });
 
-const Product = mongoose.model("Product", productSchema);
+const Parts = mongoose.model("Parts", partsSchema);
 
-module.exports = Product;
+module.exports = Parts;
