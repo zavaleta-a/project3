@@ -69,7 +69,7 @@ function Parts() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentPart, purchaseQuantity: 1 },
+        parts: { ...currentPart, purchaseQuantity: 1 },
       });
       idbPromise('cart', 'put', { ...currentPart, purchaseQuantity: 1 });
     }
@@ -88,7 +88,7 @@ function Parts() {
     <>
       {currentPart && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">← Back to Parts</Link>
 
           <h2>{currentPart.name}</h2>
 

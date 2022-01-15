@@ -1,8 +1,8 @@
 import { gql } from 'graphql-tag';
 
 export const QUERY_PARTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+  query getParts($category: ID) {
+    parts(category: $category) {
       _id
       name
       description
@@ -17,8 +17,8 @@ export const QUERY_PARTS = gql`
 `;
 
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
+  query getCheckout($parts: [ID]!) {
+    checkout(parts: $parts) {
       session
     }
   }
@@ -56,7 +56,7 @@ export const QUERY_USER = gql`
       orders {
         _id
         purchaseDate
-        products {
+        parts {
           _id
           name
           description
