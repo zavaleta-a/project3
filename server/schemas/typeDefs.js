@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
   }
 
-  type Product {
+  type Parts {
     _id: ID
     name: String
     description: String
