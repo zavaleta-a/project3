@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ProductItem from '../ProductItem';
+import PartsItem from '../PartsItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_PARTS} from '../../utils/actions';
 import { useQuery } from '@apollo/react-hooks';
@@ -50,7 +50,7 @@ function PartsList() {
       {state.parts.length ? (
         <div className="flex-row">
           {filterParts().map((parts) => (
-            <ProductItem
+            <PartsItem
               key={parts._id}
               _id={parts._id}
               image={parts.image}
