@@ -50,7 +50,7 @@ function PartsList() {
       {state.parts.length ? (
         <div className="flex-row">
           {filterParts().map((parts) => (
-            <ProductItem
+            <PartsItem
               key={parts._id}
               _id={parts._id}
               image={parts.image}

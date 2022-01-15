@@ -6,7 +6,7 @@ import Cart from "../components/Cart";
 const Home = () => {
   return (
     <div className="splash-container">
-      <CategoryMenu />
+      {/* <CategoryMenu /> */}
       <PartsList />
       <Cart />
     </div>
