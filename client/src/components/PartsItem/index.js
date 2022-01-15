@@ -34,7 +34,7 @@ function PartsItem(item) {
       } else {
         dispatch({
           type: ADD_TO_CART,
-          product: { ...item, purchaseQuantity: 1 }
+          parts: { ...item, purchaseQuantity: 1 }
         });
         idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
       }
@@ -42,7 +42,7 @@ function PartsItem(item) {
   
     return (
       <div className="card px-1 py-1">
-        <Link to={`/products/${_id}`}>
+        <Link to={`/parts/${_id}`}>
           <img
             alt={name}
             src={`/images/${image}`}
