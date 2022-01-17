@@ -5,7 +5,7 @@ import { UPDATE_PARTS} from '../../utils/actions';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PARTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-// import spinner from '../../assets/spinner.gif';
+import spinner from '../../assets/spinner.gif';
 
 function PartsList() {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ function PartsList() {
     }
 
     return state.parts.filter(
-      (part) => part.category._id === currentCategory
+      (parts) => parts.category._id === currentCategory
     );
   }
 
