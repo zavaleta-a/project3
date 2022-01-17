@@ -49,14 +49,14 @@ function PartsList() {
       <h2>Our Parts:</h2>
       {state.parts.length ? (
         <div className="flex-row">
-          {filterParts().map((part) => (
+          {filterParts().map((parts) => (
             <PartsItem
-              key={part._id}
-              _id={part._id}
-              image={part.image}
-              name={part.name}
-              price={part.price}
-              quantity={part.quantity}
+              key={parts._id}
+              _id={parts._id}
+              image={parts.image}
+              name={parts.name}
+              price={parts.price}
+              quantity={parts.quantity}
             />
           ))}
         </div>
