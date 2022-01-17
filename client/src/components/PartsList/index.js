@@ -63,7 +63,7 @@ function PartsList() {
       ) : (
         <h3>You haven't added any parts yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
     </div>
   );
 }
