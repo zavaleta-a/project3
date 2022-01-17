@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="splash-container">
       <CategoryMenu />
-      {/* <PartsList /> */}
+      <PartsList />
       <Cart />
     </div>
   );
