@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { User, Product, Category } = require("../models");
+const { User, Part, Category } = require("../models");
 
 db.once("open", async () => {
   await Category.deleteMany();
@@ -14,9 +14,9 @@ db.once("open", async () => {
 
   console.log("categories seeded");
 
-  await Product.deleteMany();
+  await Part.deleteMany();
 
-  const products = await Product.insertMany([
+  const parts = await Part.insertMany([
     {
       name: "Air Filter",
       description: "STP-Air-Filter for Toyota RAV4",
@@ -70,7 +70,7 @@ db.once("open", async () => {
     password: "password12345",
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id],
+        parts: [parts[0]._id, parts[0]._id, parts[1]._id],
       },
     ],
   });

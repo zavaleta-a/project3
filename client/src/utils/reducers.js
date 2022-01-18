@@ -31,7 +31,7 @@ import {
         return {
           ...state,
           cartOpen: true,
-          cart: [...state.cart, action.parts],
+          cart: [...state.cart, action.part],
         };
       case ADD_MULTIPLE_TO_CART:
         return {
@@ -44,19 +44,19 @@ import {
         return {
           ...state,
           cartOpen: true,
-          cart: state.cart.map((parts) => {
-            if (action._id === parts._id) {
-              parts.purchaseQuantity = action.purchaseQuantity;
+          cart: state.cart.map((part) => {
+            if (action._id === part._id) {
+              part.purchaseQuantity = action.purchaseQuantity;
             }
-            return parts;
+            return part;
           }),
         };
   
       // First we iterate through each item in the cart and check to see if the `t._id` matches the `action._id`
       // If so, we remove it from our cart and set the updated state to a variable called `newState`
       case REMOVE_FROM_CART:
-        let newState = state.cart.filter((parts) => {
-          return parts._id !== action._id;
+        let newState = state.cart.filter((part) => {
+          return part._id !== action._id;
         });
   
         // Then we return a copy of state and check to see if the cart is empty.

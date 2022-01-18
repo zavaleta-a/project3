@@ -7,6 +7,7 @@ import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import './style.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -47,16 +48,16 @@ const Cart = () => {
   }
 
   function submitCheckout() {
-    const partsIds = [];
+    const partIds = [];
 
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        partsIds.push(item._id);
+        partIds.push(item._id);
       }
     });
 
     getCheckout({
-      variables: { parts: partsIds },
+      variables: { parts: partIds },
     });
   }
 

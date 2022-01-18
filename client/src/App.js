@@ -5,7 +5,7 @@ import ApolloClient from "apollo-boost";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Parts from "./pages/Parts";
+import Info from "./pages/Info";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
 import OrderHistory from "./pages/OrderHistory";
@@ -37,7 +37,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/parts/:id" component={Parts} />
+              <Route exact path="/parts/:id" component={Info} />
             </Switch>
           </Provider>
         </div>

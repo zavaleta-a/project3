@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 
 import Cart from '../components/Cart';
-// import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -15,8 +14,7 @@ import { QUERY_PARTS} from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
-function Parts() {
-  // const [state, dispatch] = useStoreContext();
+function Info() {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -30,7 +28,7 @@ function Parts() {
   useEffect(() => {
     // already in global store
     if (parts.length) {
-      setCurrentPart(parts.find((parts) => parts._id === id));
+      setCurrentPart(parts.find((part) => part._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -39,8 +37,8 @@ function Parts() {
         parts: data.parts,
       });
 
-      data.parts.forEach((parts) => {
-        idbPromise('parts', 'put', parts);
+      data.parts.forEach((part) => {
+        idbPromise('parts', 'put', part);
       });
     }
     // get cache from idb
@@ -69,7 +67,7 @@ function Parts() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        parts: { ...currentPart, purchaseQuantity: 1 },
+        part: { ...currentPart, purchaseQuantity: 1 },
       });
       idbPromise('cart', 'put', { ...currentPart, purchaseQuantity: 1 });
     }
@@ -117,4 +115,4 @@ function Parts() {
   );
 }
 
-export default Parts;
+export default Info;

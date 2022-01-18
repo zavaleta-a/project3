@@ -5,7 +5,7 @@ import { UPDATE_PARTS} from '../../utils/actions';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PARTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-// import spinner from '../../assets/spinner.gif';
+import spinner from '../../assets/spinner.gif';
 
 function PartsList() {
   const dispatch = useDispatch();
@@ -21,8 +21,8 @@ function PartsList() {
         type: UPDATE_PARTS,
         parts: data.parts,
       });
-      data.parts.forEach((parts) => {
-        idbPromise('parts', 'put', parts);
+      data.parts.forEach((part) => {
+        idbPromise('parts', 'put', part);
       });
     } else if (!loading) {
       idbPromise('parts', 'get').then((parts) => {
@@ -58,7 +58,7 @@ function PartsList() {
               price={parts.price}
               quantity={parts.quantity}
             />
-          ))}
+          ))}s
         </div>
       ) : (
         <h3>You haven't added any parts yet!</h3>

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Parts, Category, Order } = require("../models");
+const { User, Part, Category, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -21,10 +21,10 @@ const resolvers = {
         };
       }
 
-      return await Parts.find(params).populate("category");
+      return await Part.find(params).populate("category");
     },
     parts: async (parent, { _id }) => {
-      return await Parts.findById(_id).populate("category");
+      return await Part.findById(_id).populate("category");
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -60,14 +60,14 @@ const resolvers = {
       const { parts } = await order.populate("parts").execPopulate();
 
       for (let i = 0; i < parts.length; i++) {
-        const parts = await stripe.parts.create({
+        const part = await stripe.parts.create({
           name: parts[i].name,
           description: parts[i].description,
           images: [`${url}/images/${parts[i].image}`],
         });
 
         const price = await stripe.prices.create({
-          parts: parts.id,
+          part: part.id,
           unit_amount: parts[i].price * 100,
           currency: "usd",
         });

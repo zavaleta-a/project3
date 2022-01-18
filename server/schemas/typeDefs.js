@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
   }
 
-  type Parts {
+  type Part {
     _id: ID
     name: String
     description: String
@@ -19,7 +19,7 @@ const typeDefs = gql`
   type Order {
     _id: ID
     purchaseDate: String
-    parts: [Parts]
+    parts: [Part]
   }
 
   type User {
@@ -41,8 +41,8 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    part(category: ID, name: String): [Parts]
-    parts(_id: ID!): Parts
+    parts(category: ID, name: String): [Part]
+    part(_id: ID!): Part
     user: User
     order(_id: ID!): Order
     checkout(parts: [ID]!): Checkout
@@ -62,7 +62,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
-    updateParts(_id: ID!, quantity: Int!): Parts
+    updateParts(_id: ID!, quantity: Int!): Part
     login(email: String!, password: String!): Auth
   }
 `;
