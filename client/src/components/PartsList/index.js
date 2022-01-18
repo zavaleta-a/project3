@@ -58,7 +58,7 @@ function PartsList() {
               price={parts.price}
               quantity={parts.quantity}
             />
-          ))}
+          ))}s
         </div>
       ) : (
         <h3>You haven't added any parts yet!</h3>

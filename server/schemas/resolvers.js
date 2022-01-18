@@ -67,7 +67,7 @@ const resolvers = {
         });
 
         const price = await stripe.prices.create({
-          parts: part.id,
+          part: part.id,
           unit_amount: parts[i].price * 100,
           currency: "usd",
         });
