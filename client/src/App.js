@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Info from "./pages/Info";
 import Signup from "./pages/Signup";
+import Success from './pages/Success';
+import Parts from './pages/Parts';
 import Nav from "./components/Nav";
 import OrderHistory from "./pages/OrderHistory";
 
@@ -36,6 +38,8 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/success" component={Success} />
+              <Route exact path="/parts" component={Parts} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/parts/:id" component={Info} />
             </Switch>
