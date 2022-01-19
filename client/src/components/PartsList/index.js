@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import PartsItem from "../PartsItem";
-import { useDispatch, useSelector } from 'react-redux';
-import { UPDATE_PARTS} from '../../utils/actions';
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_PARTS } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
-import spinner from '../../assets/spinner.gif';
+import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_PARTS } from "../../utils/actions";
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_PARTS } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+// import spinner from '../../assets/spinner.gif';
 
 function PartsList() {
   const dispatch = useDispatch();
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
 
   const { currentCategory } = state;
 
@@ -21,11 +21,11 @@ function PartsList() {
         type: UPDATE_PARTS,
         parts: data.parts,
       });
-      data.parts.forEach((part) => {
-        idbPromise('parts', 'put', part);
+      data.parts.forEach((parts) => {
+        idbPromise("parts", "put", parts);
       });
     } else if (!loading) {
-      idbPromise('parts', 'get').then((parts) => {
+      idbPromise("parts", "get").then((parts) => {
         dispatch({
           type: UPDATE_PARTS,
           parts: parts,
@@ -58,7 +58,7 @@ function PartsList() {
               price={parts.price}
               quantity={parts.quantity}
             />
-          ))}s
+          ))}
         </div>
       ) : (
         <h3>You haven't added any parts yet!</h3>
