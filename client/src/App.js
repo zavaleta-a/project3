@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Info from "./pages/Info";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
+import Cart from "./components/Cart";
 import OrderHistory from "./pages/OrderHistory";
 
 import store from "./utils/store";
@@ -31,14 +32,26 @@ function App() {
       <Router>
         <div>
           <Provider store={store}>
+            <div className="splash-container">
+            <Cart />
             <Nav />
             <Switch>
-              <Route exact path="/" component={Home} />
+              {/* <Route exact path="/" component={Home} /> */}
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/parts/:id" component={Info} />
             </Switch>
+            <div className="splash">
+              <h1 className="splash-head">Welcome to Parts R Us! </h1>
+              <p className="splash-subhead">
+                Click to view current automotive parts.
+              </p>
+              <p>
+                <a href="/login" className="pure-button pure-button-primary">Start</a>
+              </p>
+            </div>
+          </div>
           </Provider>
         </div>
       </Router>
