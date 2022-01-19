@@ -1,6 +1,7 @@
 import React from "react";
-import PartsList from "../components/PartsList";
-import CategoryMenu from "../components/CategoryMenu";
+import { Link } from 'react-router-dom';
+// import PartsList from "../components/PartsList";
+// import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
 
 const Home = () => {
@@ -15,10 +16,10 @@ const Home = () => {
     <div class="splash">
       <h1 class="splash-head">Welcome to A.R.T.! </h1>
       <p class="splash-subhead">
-        Login in to view current vehicles.
+        Click start to view current auto parts.
       </p>
       <p>
-        <a href="/Info" class="pure-button pure-button-primary">Start</a>
+      <Link to="/parts" class="pure-button pure-button-primary">Start</Link>
       </p>
     </div>
   </div>
